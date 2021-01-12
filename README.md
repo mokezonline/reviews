@@ -1,2 +1,39 @@
-# JamBox
-FEC project for the HackReactor software engineering immersive. Recreation of the front end components of Spotify's webapp. Developed by Alex Yu, Alex Klyuev, Zach Cuch, Sam Bjorklund.
+# Project Name
+
+> Project description
+
+## Related Projects
+
+  - https://github.com/teamName/repo
+  - https://github.com/teamName/repo
+  - https://github.com/teamName/repo
+  - https://github.com/teamName/repo
+
+## Table of Contents
+
+1. [Usage](#Usage)
+1. [Requirements](#requirements)
+1. [Development](#development)
+
+## Usage
+
+> Some usage instructions
+
+## Requirements
+
+An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
+
+- Node 6.13.0
+- etc
+
+## Development
+
+### Installing Dependencies
+
+From within the root directory:
+
+```sh
+npm install -g webpack
+npm install
+```
+
