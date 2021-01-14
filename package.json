@@ -1,13 +1,16 @@
 {
-  "name": "",
-  "version": "",
+  "name": "fjord-reviews",
+  "version": "1.0.0",
   "description": "",
-  "author": "",
-  "license": "",
+  "author": "Sam B.",
+  "main": "index.js",
   "engines": {
     "node": ">=6.13.0"
   },
-  "scripts": {},
+  "scripts": {
+    "start": "nodemon server",
+    "watch": "webpack -d --watch"
+  },
   "dependencies": {
     "axios": "^0.21.1",
     "bluebird": "^3.7.2",
