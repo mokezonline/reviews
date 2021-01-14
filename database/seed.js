@@ -110,14 +110,13 @@ const sampleReviews = [
   }
 ]
 
-insertSampleProducts = () => {
+insertSamples= () => {
   Product.create(sampleProduct)
-    .then(() => DB.disconnect());
-}
-insertSampleReviews = () => {
-  Review.create(sampleReviews)
-    .then(() => DB.disconnect());
+    .then(() => {
+      Review.create(sampleReviews)
+    }).then(() =>
+      DB.disconnect())
+      .catch(console.log);
 }
 
-insertSampleProducts();
-insertSampleReviews();
+insertSamples();

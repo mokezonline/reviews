@@ -10,7 +10,7 @@ const reviewDB  = require('../database/Review.js');
 const productRoutes =  require('./routes/productR');
 const reviewRoutes = require('./routes/reviewR');
 
-app.use('/', express.static(path.join('dirname', '..', 'client', 'src')))
+app.use(express.static(path.join(__dirname, '..', 'public')))
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 

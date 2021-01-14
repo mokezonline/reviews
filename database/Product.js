@@ -9,8 +9,7 @@ const productSchema = new mongoose.Schema({
   rating: Number,
   ratingCount: Number,
   fit: String,
-  activites: String,
-  reviews: [Reviews]
+  activites: String
 },
 {
   timestamps: true
