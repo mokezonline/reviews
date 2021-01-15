@@ -10,7 +10,7 @@ const randVal = (array) => array[Math.floor(Math.random() * array.length)];
 
 const fakeData = new Array(100).fill(null).map(() => (
   {
-    rating: (Math.random() * (5 - 1) + 1),
+    rating: (Math.floor(Math.random() * (5 - 1) + 1)),
     title: faker.commerce.productAdjective(),
     author: faker.name.firstName(),
     body: faker.commerce.productDescription(),
@@ -46,7 +46,7 @@ const sampleProduct = [{
 
 const insertSamples = () => {
   Product.create(sampleProduct)
-    .then(() => DB.disconnect())
+    .then(() => DB.collection.close())
     .catch(console.log);
 };
 

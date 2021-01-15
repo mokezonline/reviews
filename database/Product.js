@@ -4,7 +4,11 @@ const db = require('./index.js');
 mongoose.Promise = global.Promise;
 
 const productSchema = new mongoose.Schema({
-  productName: String,
+  productName: {
+    type: String,
+    unique: true,
+    dropDups: true,
+  },
   imgUrl: String,
   rating: Number,
   ratingCount: Number,
