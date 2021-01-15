@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const db = require('./index.js');
-const Reviews = require('./Review');
+
 mongoose.Promise = global.Promise;
 
 const productSchema = new mongoose.Schema({
@@ -9,14 +9,37 @@ const productSchema = new mongoose.Schema({
   rating: Number,
   ratingCount: Number,
   fit: String,
-  activites: String
+  activites: String,
+  reviews: [{
+    productName: String,
+    rating: Number,
+    title: String,
+    author: String,
+    imageUrl: String,
+    body: String,
+    productInfo: {
+      size: String,
+      fit: String,
+      Height: String,
+    },
+    properties: {
+      casualWear: Boolean,
+      climbing: Boolean,
+      yoga: Boolean,
+      fishing: Boolean,
+      running: Boolean,
+      hiking: Boolean,
+      mountainBiking: Boolean,
+      snowWear: Boolean,
+      surfing: Boolean,
+      work: Boolean,
+      recommended: Boolean,
+    },
+  }],
 },
 {
-  timestamps: true
-}
-);
-
-
+  timestamps: true,
+});
 
 const Product = mongoose.model('Product', productSchema);
 

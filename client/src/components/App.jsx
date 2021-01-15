@@ -1,12 +1,11 @@
 import React from 'react';
-import ReviewComponent from './review/ReviewComponent.jsx';
+import ReviewComponent from './ReviewComponent';
 
 class App extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-
-    }
+    };
   }
 
   render() {
@@ -17,10 +16,10 @@ class App extends React.Component {
         </div>
         <div>Overview</div>
         <div id="reviews-bar">
-          <ReviewComponent/>
+          <ReviewComponent />
         </div>
       </div>
-    )
+    );
   }
 }
 

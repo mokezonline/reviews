@@ -1,20 +1,17 @@
 const express = require('express');
-const app = express();
 const path = require('path');
-const PORT  = 3000;
 
+const app = express();
+const PORT = 3000;
 
-const productDB  = require ('../database/Product.js');
-const reviewDB  = require('../database/Review.js');
+const productDB = require('../database/Product.js');
 
-const productRoutes =  require('./routes/productR');
-const reviewRoutes = require('./routes/reviewR');
+const productRoutes = require('./routes/productR');
 
-app.use(express.static(path.join(__dirname, '..', 'public')))
-app.use(express.urlencoded({extended: true}));
+app.use(express.static(path.join(__dirname, '..', 'public')));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
 
 app.listen(PORT, () => {
   console.log(`listening on ${PORT}`);
-})
+});
