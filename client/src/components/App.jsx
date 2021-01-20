@@ -5,10 +5,12 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      reviews: [],
     };
   }
 
   render() {
+    const { reviews } = this.state;
     return (
       <div id="page-layout">
         <div>
@@ -16,7 +18,7 @@ class App extends React.Component {
         </div>
         <div>Overview</div>
         <div id="reviews-bar">
-          <ReviewComponent />
+          <ReviewComponent reviews={reviews} />
         </div>
       </div>
     );
