@@ -1,16 +1,30 @@
 import React from 'react';
+import axios from 'axios';
 import ReviewComponent from './ReviewComponent';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      reviews: [],
+      product: [],
     };
+    this.getProduct = this.getProduct.bind(this);
+  }
+
+  componentDidMount() {
+    this.getProduct();
+  }
+
+  getProduct() {
+    axios.get('/products').then(({ data }) => {
+      this.setState({
+        product: data[0],
+      });
+    });
   }
 
   render() {
-    const { reviews } = this.state;
+    const { product } = this.state;
     return (
       <div id="page-layout">
         <div>
@@ -18,7 +32,7 @@ class App extends React.Component {
         </div>
         <div>Overview</div>
         <div id="reviews-bar">
-          <ReviewComponent reviews={reviews} />
+          <ReviewComponent product={product} />
         </div>
       </div>
     );

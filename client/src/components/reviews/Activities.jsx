@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
   stylesDefault: PropTypes.object.isRequired,
   // reviews: PropTypes.isRequired,
 };
