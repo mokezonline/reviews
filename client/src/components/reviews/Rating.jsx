@@ -4,7 +4,12 @@ import PropTypes from 'prop-types';
 const propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
   stylesDefault: PropTypes.object.isRequired,
-  // reviews: PropTypes.isRequired,
+  rating: PropTypes.number,
+  ratingCount: PropTypes.number,
+};
+const defaultProps = {
+  rating: 0,
+  ratingCount: 0,
 };
 
 class Rating extends React.Component {
@@ -15,12 +20,11 @@ class Rating extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      rating: 4.5,
-      reviewCount: 113,
     };
   }
 
   render() {
+    // Styles
     const { stylesDefault } = this.props;
     const { Button1 } = stylesDefault;
     const { B } = stylesDefault;
@@ -28,10 +32,10 @@ class Rating extends React.Component {
     const { Span2 } = stylesDefault;
     const { Div2 } = stylesDefault;
     const { Div3 } = stylesDefault;
-
-    const { rating } = this.state;
-    const { reviewCount } = this.state;
-    const basedText = `Based on ${reviewCount} reviews`;
+    // Props
+    const { rating } = this.props;
+    const { ratingCount } = this.props;
+    const basedText = `Based on ${ratingCount} reviews`;
 
     return (
       <div>
@@ -59,4 +63,5 @@ class Rating extends React.Component {
 }
 
 Rating.propTypes = propTypes;
+Rating.defaultProps = defaultProps;
 export default Rating;

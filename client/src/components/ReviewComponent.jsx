@@ -8,7 +8,16 @@ import ReviewForm from './reviews/ReviewForm';
 
 const propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
-  product: PropTypes.array.isRequired,
+  product: PropTypes.object,
+};
+const defaultProps = {
+  product: {
+    productName: 'Missing',
+    imgUrl: 'Missing',
+    rating: 0,
+    reviews: [],
+    fit: 'missing',
+  },
 };
 
 class ReviewComponent extends React.Component {
@@ -116,31 +125,38 @@ class ReviewComponent extends React.Component {
     const { H2 } = stylesDefault;
     const { Section1 } = stylesDefault;
     const { Section2 } = stylesDefault;
+    const { Button1 } = stylesDefault;
     const { Div1 } = stylesDefault;
     // Props
     const { product } = this.props;
     const { productName } = product;
     const { imgUrl } = product;
     const { rating } = product;
-    const { ratingCount } = product;
     const { fit } = product;
     const { reviews } = product;
+    // Functions
+    const logFunction = (event) => {
+      event.preventDefault();
+      console.log(this.props);
+    };
 
     return (
       <Section1>
         <Section2>
           <Div1>
             <H2>Reviews</H2>
-            <Rating stylesDefault={stylesDefault} rating={rating} ratingCount={ratingCount} />
+            <Rating stylesDefault={stylesDefault} rating={rating} ratingCount={113} />
             <SizeAndFit stylesDefault={stylesDefault} fit={fit} />
             <Activities stylesDefault={stylesDefault} />
           </Div1>
           <ReviewForm productName={productName} imgUrl={imgUrl} reviews={reviews} />
         </Section2>
+        <Button1 onClick={logFunction}>Test features</Button1>
       </Section1>
     );
   }
 }
 
 ReviewComponent.propTypes = propTypes;
+ReviewComponent.defaultProps = defaultProps;
 export default ReviewComponent;

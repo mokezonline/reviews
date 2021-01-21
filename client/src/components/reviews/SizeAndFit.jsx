@@ -4,7 +4,12 @@ import PropTypes from 'prop-types';
 const propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
   stylesDefault: PropTypes.object.isRequired,
+  fit: PropTypes.string,
   // reviews: PropTypes.isRequired,
+};
+
+const defaultProps = {
+  fit: 'missing',
 };
 
 class SizeAndFit extends React.Component {
@@ -20,6 +25,7 @@ class SizeAndFit extends React.Component {
   }
 
   render() {
+    // Styles
     const { stylesDefault } = this.props;
     const { B } = stylesDefault;
     const { Span1 } = stylesDefault;
@@ -27,6 +33,8 @@ class SizeAndFit extends React.Component {
     const { Div2 } = stylesDefault;
     const { Div3 } = stylesDefault;
     const { Button1 } = stylesDefault;
+    // Props
+    const { fit } = this.props;
 
     return (
       <div>
@@ -36,7 +44,7 @@ class SizeAndFit extends React.Component {
           </Span1>
         </B>
         <Div2>
-          True To Size
+          {fit}
         </Div2>
         <Div3>
           <Span2>
@@ -50,4 +58,5 @@ class SizeAndFit extends React.Component {
 }
 
 SizeAndFit.propTypes = propTypes;
+SizeAndFit.defaultProps = defaultProps;
 export default SizeAndFit;

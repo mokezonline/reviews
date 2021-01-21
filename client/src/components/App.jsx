@@ -6,7 +6,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      product: [],
+      product: {},
     };
     this.getProduct = this.getProduct.bind(this);
   }
