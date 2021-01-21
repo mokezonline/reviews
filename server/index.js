@@ -11,7 +11,7 @@ const productRoutes = require('./routes/productRoutes');
 app.use(express.static(path.join(__dirname, '..', 'public')));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use('/product', productRoutes);
+app.use('/products', productRoutes);
 
 app.listen(PORT, () => {
   console.log(`listening on ${PORT}`);
