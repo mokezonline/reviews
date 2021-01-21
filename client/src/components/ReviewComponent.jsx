@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+/* eslint-disable react/forbid-prop-types */
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
@@ -7,17 +9,19 @@ import Activities from './reviews/Activities';
 import ReviewForm from './reviews/ReviewForm';
 
 const propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
   product: PropTypes.object,
+  changeView: PropTypes.func,
 };
 const defaultProps = {
   product: {
-    productName: 'Missing',
-    imgUrl: 'Missing',
+    productName: 'missing',
+    imgUrl: 'missing',
     rating: 0,
-    reviews: [],
+    ratingCount: 0,
+    reviews: ['missing'],
     fit: 'missing',
   },
+  changeView: () => 'missing',
 };
 
 class ReviewComponent extends React.Component {
@@ -125,33 +129,25 @@ class ReviewComponent extends React.Component {
     const { H2 } = stylesDefault;
     const { Section1 } = stylesDefault;
     const { Section2 } = stylesDefault;
-    const { Button1 } = stylesDefault;
     const { Div1 } = stylesDefault;
     // Props
+    const { changeView } = this.props;
     const { product } = this.props;
-    const { productName } = product;
-    const { imgUrl } = product;
-    const { rating } = product;
-    const { fit } = product;
-    const { reviews } = product;
-    // Functions
-    const logFunction = (event) => {
-      event.preventDefault();
-      console.log(this.props);
-    };
+    const {
+      productName, imgUrl, rating, ratingCount, fit, reviews,
+    } = product;
 
     return (
       <Section1>
         <Section2>
           <Div1>
             <H2>Reviews</H2>
-            <Rating stylesDefault={stylesDefault} rating={rating} ratingCount={113} />
+            <Rating stylesDefault={stylesDefault} rating={rating} ratingCount={ratingCount} />
             <SizeAndFit stylesDefault={stylesDefault} fit={fit} />
             <Activities stylesDefault={stylesDefault} />
           </Div1>
-          <ReviewForm productName={productName} imgUrl={imgUrl} reviews={reviews} />
+          <ReviewForm productName={productName} imgUrl={imgUrl} reviews={reviews} changeView={changeView} />
         </Section2>
-        <Button1 onClick={logFunction}>Test features</Button1>
       </Section1>
     );
   }

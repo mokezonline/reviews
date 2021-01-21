@@ -1,5 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
+
+const propTypes = {
+  changeView: PropTypes.func,
+};
+const defaultProps = {
+  changeView: () => 'missing',
+};
 
 class ReviewForm extends React.Component {
   static methodsAreOk() {
@@ -40,9 +48,11 @@ class ReviewForm extends React.Component {
       line-height: 48px;
       text-align: center;
     `;
+
+    const { changeView } = this.props;
     return (
       <Div>
-        <Button>
+        <Button onClick={() => changeView('seeReviews')}>
           <Span1>
             See All Reviews
           </Span1>
@@ -55,4 +65,6 @@ class ReviewForm extends React.Component {
   }
 }
 
+ReviewForm.propTypes = propTypes;
+ReviewForm.defaultProps = defaultProps;
 export default ReviewForm;

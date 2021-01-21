@@ -12,6 +12,7 @@ const productSchema = new mongoose.Schema({
   },
   imgUrl: String,
   rating: Number,
+  ratingCount: Number,
   fit: String,
   activites: String,
   reviews: [{
