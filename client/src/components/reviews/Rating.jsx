@@ -49,7 +49,7 @@ class Rating extends React.Component {
           </Span1>
         </B>
         <Div2>
-          *****
+          ★★★★☆
         </Div2>
         <Div3>
           <Span2>

@@ -30,21 +30,22 @@ class App extends React.Component {
   }
 
   changeView(option) {
+    console.log('clicked!');
     this.setState({
       view: option,
     });
   }
 
-  renderModals() {
-    const { view } = this.state;
-    const { product } = this.state;
-    const { reviews } = product;
+  // renderModals() {
+  //   const { view } = this.state;
+  //   const { product } = this.state;
+  //   const { reviews } = product;
 
-    if (view === 'seeReviews') {
-      return <ReviewList reviews={reviews} />;
-    }
-    return (<button type="submit" value="hello">Hello</button>);
-  }
+  //   if (view === 'seeReviews') {
+  //     return <ReviewList reviews={reviews} changeView={this.changeView} />;
+  //   }
+  //   return (<button type="submit" value="hello">Hello</button>);
+  // }
 
   render() {
     const Page = styled.div`
@@ -52,24 +53,30 @@ class App extends React.Component {
       padding: 0;
       width: 100%;
       height: 100%;
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow-x: hidden;
     `;
     const { product } = this.state;
     const { view } = this.state;
+    const { reviews } = product;
+    const { ratingCount } = product;
     return (
-      <Page>
-        <div className="overlay">
-          {view === 'seeReviews' && <ReviewList />}
+      <div>
+        <Page>
           <div id="page-layout">
-            <div>
-              <h1>Size Carousel</h1>
-            </div>
-            <div>Overview</div>
             <div id="reviews-bar">
               <ReviewComponent product={product} changeView={this.changeView} />
             </div>
           </div>
+        </Page>
+        <div className="overlay">
+          {view === 'seeReviews' && <ReviewList reviews={reviews} ratingCount={ratingCount} changeView={this.changeView} />}
+          {view === 'writeReviews' && <ReviewList reviews={reviews} ratingCount={ratingCount} changeView={this.changeView} />}
         </div>
-      </Page>
+      </div>
     );
   }
 }

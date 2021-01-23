@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import Rating from './reviews/Rating';
 import SizeAndFit from './reviews/SizeAndFit';
 import Activities from './reviews/Activities';
-import ReviewForm from './reviews/ReviewForm';
+import ReviewModals from './reviews/ReviewModals';
 
 const propTypes = {
   product: PropTypes.object,
@@ -146,7 +146,7 @@ class ReviewComponent extends React.Component {
             <SizeAndFit stylesDefault={stylesDefault} fit={fit} />
             <Activities stylesDefault={stylesDefault} />
           </Div1>
-          <ReviewForm productName={productName} imgUrl={imgUrl} reviews={reviews} changeView={changeView} />
+          <ReviewModals productName={productName} imgUrl={imgUrl} reviews={reviews} changeView={changeView} />
         </Section2>
       </Section1>
     );

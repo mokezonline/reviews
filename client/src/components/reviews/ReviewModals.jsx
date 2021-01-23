@@ -9,7 +9,7 @@ const defaultProps = {
   changeView: () => 'missing',
 };
 
-class ReviewForm extends React.Component {
+class ReviewModals extends React.Component {
   static methodsAreOk() {
     return true;
   }
@@ -30,7 +30,7 @@ class ReviewForm extends React.Component {
     text-align: left;
     margin-left: 318px;
     `;
-    const Button = styled.button`
+    const Button1 = styled.button`
       background-color: #ffffff;
       margin: 4px 20px;
       cursor: pointer;
@@ -42,6 +42,18 @@ class ReviewForm extends React.Component {
       outline: none;
 
     `;
+    const Button2 = styled.button`
+    background: none;
+    margin: 4px 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 16px;
+    font-weight: 900;
+    color: #ffffff;
+    text-align: center;
+    outline: none;
+
+  `;
     const Span1 = styled.span`
       display: inline-block;
       font-family: 'Roboto', Sans Serif;
@@ -52,19 +64,21 @@ class ReviewForm extends React.Component {
     const { changeView } = this.props;
     return (
       <Div>
-        <Button onClick={() => changeView('seeReviews')}>
+        <Button1 onClick={() => changeView('seeReviews')}>
           <Span1>
             See All Reviews
           </Span1>
-        </Button>
-        <Span1>
-          Write a Review
-        </Span1>
+        </Button1>
+        <Button2 onClick={() => changeView('writeReviews')}>
+          <Span1>
+            Write a Review
+          </Span1>
+        </Button2>
       </Div>
     );
   }
 }
 
-ReviewForm.propTypes = propTypes;
-ReviewForm.defaultProps = defaultProps;
-export default ReviewForm;
+ReviewModals.propTypes = propTypes;
+ReviewModals.defaultProps = defaultProps;
+export default ReviewModals;
