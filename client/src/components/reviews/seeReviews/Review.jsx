@@ -1,57 +1,87 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/forbid-prop-types */
 import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
-
-const propTypes = {
-  title: PropTypes.string,
-  productInfo: PropTypes.object,
-  properties: PropTypes.object,
-  author: PropTypes.string,
-  body: PropTypes.string,
-  rating: PropTypes.number,
-};
-const defaultProps = {
-  title: 'missing',
-  productInfo: { missing: 'missing' },
-  properties: { missing: 'missing' },
-  author: 'missing',
-  body: 'missing',
-  rating: 0,
-};
+import { StylesModal } from '../StylesModal';
 
 const Review = (props) => {
-  // Styles
-  const Li = styled.li`
-    display:flex;
-    flex-directtion: row;
-    font-family: 'Roboto', Sans Serif;
-    font-weight: 500;
-    color: #000000;
-  `;
-  const ReviewContent = styled.div`
-    display: flex;
-    flex-direction: column;
-  `;
-  const B = styled.b`
-    font-weight: 700;
-  `;
   // Props
+  const { review } = props;
   const {
-    title, productInfo, properties, rating, author, body,
-  } = props;
-
+    title,
+    productInfo,
+    properties,
+    rating,
+    author,
+    body,
+  } = review;
+  const {
+    size,
+    fit,
+  } = productInfo;
+  // Styles
+  const {
+    ReviewContainers,
+    ReviewContent,
+  } = StylesModal;
+  // Page and containers
+  const {
+    ReviewContainer,
+    ReviewHeaderContainer,
+    ReviewAuthorContainer,
+  } = ReviewContainers;
+  // Content
+  const {
+    ReviewsContent,
+    H1,
+    H3,
+    B,
+    Stars,
+    H4,
+    Ul,
+  } = ReviewContent;
+  // Functions
+  const parseStars = (score) => {
+    const stars = [];
+    let i = 1;
+    for (i; i <= 5; i += 1) {
+      if (i <= score) {
+        stars.push('★');
+      } else {
+        stars.push('☆');
+      }
+    }
+    return stars.join('');
+  };
+  const parseProperties = (activities) => {
+    const uses = activities.filter((value) => value !== 'recommended');
+    return uses.join(', ');
+  };
+  const recommended = (activities) => (activities.includes('recommended') ? 'Yes' : 'No');
   return (
-    <Li>
-      <ReviewContent>
-        <B>{title}</B>
-        <p>{body}</p>
-      </ReviewContent>
-    </Li>
+    <ReviewContainer>
+      <ReviewsContent>
+        <ReviewHeaderContainer>
+          <Stars>{parseStars(rating)}</Stars>
+          <div>{new Date().toLocaleDateString('en-us')}</div>
+        </ReviewHeaderContainer>
+        <H1>{title}</H1>
+        <span>{body}</span>
+      </ReviewsContent>
+      <ReviewAuthorContainer>
+        <H3>{author}</H3>
+        <H4>verified buyer</H4>
+        <Ul>
+          <li><B>Size Purchased: </B> {size}</li>
+          <li><B>Fit: </B> {fit}</li>
+          <li><B>Used for: </B> {parseProperties(properties)}</li>
+          <li><B>Likely to recommend: </B> {recommended(properties)}</li>
+        </Ul>
+      </ReviewAuthorContainer>
+    </ReviewContainer>
   );
 };
 
-Review.propTypes = propTypes;
-Review.defaultProps = defaultProps;
 export default Review;

@@ -2,15 +2,27 @@ const faker = require('faker');
 const DB = require('./index.js');
 const Product = require('./Product.js');
 
-const offSetBoolean = () => (Math.random() < 0.4);
 const sizeChart = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
-const fitChart = ['loose', 'tight', 'good', 'perfect'];
+const fitChart = ['Loose', 'Tight', 'Good', 'Perfect'];
 const heightChart = ['average', 'tall'];
 const randVal = (array) => array[Math.floor(Math.random() * array.length)];
 
+const randUse = () => {
+  const properties = [];
+  let i = 0;
+  const uses = ['Casual-wear', 'Climbing', 'Yoga', 'Fishing', 'Hiking', 'Biking', 'Snow-Wear', 'Surfing', 'Work', 'recommended'];
+  const offSetBoolean = () => (Math.random() < 0.4);
+  for (i; i < uses.length; i += 1) {
+    if (offSetBoolean()) {
+      properties.push(uses[i]);
+    }
+  }
+  return properties;
+};
+
 const fakeData = new Array(100).fill(null).map(() => (
   {
-    rating: (Math.floor(Math.random() * (5 - 1) + 1)),
+    rating: (Math.ceil(Math.random() * (5 - 1) + 1)),
     title: faker.commerce.productAdjective(),
     author: faker.name.firstName(),
     body: faker.commerce.productDescription(),
@@ -19,25 +31,13 @@ const fakeData = new Array(100).fill(null).map(() => (
       fit: randVal(fitChart),
       height: randVal(heightChart),
     },
-    properties: {
-      casualWear: offSetBoolean(),
-      climbing: offSetBoolean(),
-      yoga: offSetBoolean(),
-      fishing: offSetBoolean(),
-      running: offSetBoolean(),
-      hiking: offSetBoolean(),
-      mountainBiking: offSetBoolean(),
-      snowWear: offSetBoolean(),
-      surfing: offSetBoolean(),
-      work: offSetBoolean(),
-      recommended: offSetBoolean(),
-    },
+    properties: randUse(),
   }));
 
 const sampleProduct = [{
   productName: 'Men\'s Insulated Fjord Flannel Jacket',
   imgUrl: 'https://www.patagonia.com/dw/image/v2/BDJB_PRD/on/demandware.static/-/Sites-patagonia-master/default/dw2b58c1e7/images/hi-res/27640_NVYB.jpg?sw=500&sh=500&sfrm=png&q=95&bgcolor=f6f6f6',
-  rating: 4.5,
+  rating: 4,
   ratingCount: fakeData.length,
   fit: 'True To Size',
   activities: 'Casual Wear, Work, Hiking',

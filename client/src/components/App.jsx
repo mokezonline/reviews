@@ -3,6 +3,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 import ReviewComponent from './ReviewComponent';
 import ReviewList from './reviews/seeReviews/ReviewList';
+import ReviewForm from './reviews/makeReviews/ReviewForm';
 
 class App extends React.Component {
   constructor(props) {
@@ -35,41 +36,40 @@ class App extends React.Component {
     });
   }
 
-  renderModals() {
-    const { view } = this.state;
-    const { product } = this.state;
-    const { reviews } = product;
-
-    if (view === 'seeReviews') {
-      return <ReviewList reviews={reviews} />;
-    }
-    return (<button type="submit" value="hello">Hello</button>);
-  }
-
   render() {
     const Page = styled.div`
       margin: 0;
       padding: 0;
       width: 100%;
       height: 100%;
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow-x: hidden;
     `;
-    const { product } = this.state;
-    const { view } = this.state;
+    const { product, view } = this.state;
+    const {
+      reviews,
+      ratingCount,
+      productName,
+      imgUrl,
+    } = product;
+
     return (
-      <Page>
-        <div className="overlay">
-          {view === 'seeReviews' && <ReviewList />}
+      <div>
+        <Page>
           <div id="page-layout">
-            <div>
-              <h1>Size Carousel</h1>
-            </div>
-            <div>Overview</div>
             <div id="reviews-bar">
               <ReviewComponent product={product} changeView={this.changeView} />
             </div>
           </div>
+        </Page>
+        <div className="overlay">
+          {view === 'seeReviews' && <ReviewList reviews={reviews} ratingCount={ratingCount} changeView={this.changeView} />}
+          {view === 'writeReviews' && <ReviewForm productName={productName} imgUrl={imgUrl} changeView={this.changeView} />}
         </div>
-      </Page>
+      </div>
     );
   }
 }
