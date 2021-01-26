@@ -3,6 +3,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 import ReviewComponent from './ReviewComponent';
 import ReviewList from './reviews/seeReviews/ReviewList';
+import ReviewForm from './reviews/makeReviews/ReviewForm';
 
 class App extends React.Component {
   constructor(props) {
@@ -30,22 +31,10 @@ class App extends React.Component {
   }
 
   changeView(option) {
-    console.log('clicked!');
     this.setState({
       view: option,
     });
   }
-
-  // renderModals() {
-  //   const { view } = this.state;
-  //   const { product } = this.state;
-  //   const { reviews } = product;
-
-  //   if (view === 'seeReviews') {
-  //     return <ReviewList reviews={reviews} changeView={this.changeView} />;
-  //   }
-  //   return (<button type="submit" value="hello">Hello</button>);
-  // }
 
   render() {
     const Page = styled.div`
@@ -59,10 +48,14 @@ class App extends React.Component {
       justify-content: center;
       overflow-x: hidden;
     `;
-    const { product } = this.state;
-    const { view } = this.state;
-    const { reviews } = product;
-    const { ratingCount } = product;
+    const { product, view } = this.state;
+    const {
+      reviews,
+      ratingCount,
+      productName,
+      imgUrl,
+    } = product;
+
     return (
       <div>
         <Page>
@@ -74,7 +67,7 @@ class App extends React.Component {
         </Page>
         <div className="overlay">
           {view === 'seeReviews' && <ReviewList reviews={reviews} ratingCount={ratingCount} changeView={this.changeView} />}
-          {view === 'writeReviews' && <ReviewList reviews={reviews} ratingCount={ratingCount} changeView={this.changeView} />}
+          {view === 'writeReviews' && <ReviewForm productName={productName} imgUrl={imgUrl} changeView={this.changeView} />}
         </div>
       </div>
     );

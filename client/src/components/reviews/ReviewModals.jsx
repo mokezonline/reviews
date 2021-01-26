@@ -23,28 +23,38 @@ class ReviewModals extends React.Component {
   render() {
     const Div = styled.div`
     color: #ffffff;
-    flex-basis: 50%;
+    display: flex;
     font-size: 14px;
     font-weight: 700;
     line-height: 24.5px;
     text-align: left;
-    margin-left: 318px;
+    margin-left: 372px;
     `;
     const Button1 = styled.button`
       background-color: #ffffff;
+      position: fixed;
       margin: 4px 20px;
       cursor: pointer;
+      padding: 2px 8px;
       border: none;
-      border-radius: 16px;
+      border-radius: 500px;
       font-weight: 900;
       color: #000000;
       text-align: center;
       outline: none;
-
+      &:active {
+        transform: translate(0px, 2px);
+        -webkit-transform: translate(0px, 2px);
+        box-shadow: 0px 1px 0px 0px;
+      }
+      &:hover {
+        padding: 3px 9px;
+      }
     `;
     const Button2 = styled.button`
     background: none;
-    margin: 4px 20px;
+    position: fixed;
+    margin-left: 150px;
     cursor: pointer;
     border: none;
     border-radius: 16px;
@@ -64,16 +74,20 @@ class ReviewModals extends React.Component {
     const { changeView } = this.props;
     return (
       <Div>
-        <Button1 onClick={() => changeView('seeReviews')}>
-          <Span1>
-            See All Reviews
-          </Span1>
-        </Button1>
-        <Button2 onClick={() => changeView('writeReviews')}>
-          <Span1>
-            Write a Review
-          </Span1>
-        </Button2>
+        <div>
+          <Button1 onClick={() => changeView('seeReviews')}>
+            <Span1>
+              See All Reviews
+            </Span1>
+          </Button1>
+        </div>
+        <div>
+          <Button2 onClick={() => changeView('writeReviews')}>
+            <Span1>
+              Write a Review
+            </Span1>
+          </Button2>
+        </div>
       </Div>
     );
   }

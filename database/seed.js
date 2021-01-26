@@ -37,7 +37,7 @@ const fakeData = new Array(100).fill(null).map(() => (
 const sampleProduct = [{
   productName: 'Men\'s Insulated Fjord Flannel Jacket',
   imgUrl: 'https://www.patagonia.com/dw/image/v2/BDJB_PRD/on/demandware.static/-/Sites-patagonia-master/default/dw2b58c1e7/images/hi-res/27640_NVYB.jpg?sw=500&sh=500&sfrm=png&q=95&bgcolor=f6f6f6',
-  rating: 4.5,
+  rating: 4,
   ratingCount: fakeData.length,
   fit: 'True To Size',
   activities: 'Casual Wear, Work, Hiking',

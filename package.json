@@ -15,18 +15,21 @@
     "db:setup": "node database/seed.js"
   },
   "dependencies": {
+    "ajax": "0.0.4",
     "axios": "^0.21.1",
     "bluebird": "^3.7.2",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.5",
     "express": "^4.17.1",
     "faker": "^5.1.0",
+    "jquery": "^3.5.1",
     "moment": "^2.29.1",
     "mongoose": "^5.11.11",
     "prop-types": "^15.7.2",
     "react": "^16.14.0",
     "react-dev": "0.0.1",
     "react-dom": "^16.14.0",
+    "react-paginate": "^7.0.0",
     "styled-components": "^5.2.1"
   },
   "devDependencies": {
