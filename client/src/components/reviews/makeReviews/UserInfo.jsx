@@ -17,6 +17,8 @@ class UserInfo extends React.Component {
     // Page and containers
     const {
       Form,
+      Div,
+      UserInfoContainer,
     } = ReviewContainers;
     // Content
     const {
@@ -26,13 +28,13 @@ class UserInfo extends React.Component {
     const { author, email } = this.state;
 
     return (
-      <div>
+      <UserInfoContainer>
         <H2>*Required</H2>
         <Form>
           <Input type="text" value={author} name="author" onChange={this.onChange} placeholder="Your name(*)" />
           <Input type="text" value={email} name="email" onChange={this.onChange} placeholder="Your email(*)" />
         </Form>
-      </div>
+      </UserInfoContainer>
     );
   }
 }

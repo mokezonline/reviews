@@ -39,6 +39,7 @@ export const StylesModal = {
       display: flex;
       width: 1339px;
       height: 678px;
+      justify-content: center;
       background-color: rgba(255,255,255,1);
       border-radius: .5%;
       border: solid rgba(255,255,255,.8);
@@ -96,7 +97,6 @@ export const StylesModal = {
     ReviewHeaderContainer: styled.div`
         display: flex;
         justify-content: space-between;
-        height: 21px;
       `,
     ReviewAuthorContainer: styled.aside`
       width: 426px;
@@ -112,17 +112,43 @@ export const StylesModal = {
     ProductInfoContainer: styled.div`
       display: flex;
       flex-direction: column;
-      align-text: center;
-      width: 678px;
+      align-items: center;
+      width: 525px;
       height: 448px;
+    `,
+    ReviewBodyContainer: styled.div`
+      width: 518px;
+      height 415px;
     `,
     Form: styled.form`
       display: flex;
-      width: 360px;
+      width: 100%;
       flex-direction: column;
     `,
     Div: styled.div`
       display: flex;
+      width: 100%;
+      justify-content: center;
+    `,
+    UserInfoContainer: styled.div`
+      display: flex;
+      flex-direction: column;
+      width: 360px;
+      justify-content: center;
+    `,
+    OverallRatingContainer: styled.div`
+      display: flex;
+      width: 388px;
+      margin: 10px 0px 0px 15px;
+      justify-content: space-between;
+    `,
+    UsesAndSizeContainer: styled.div`
+      display: flex;
+      justify-content: space-between;
+      margin-top: 15px;
+      margin-bottom: 10px;
+      width: 100%;
+      height: 30px;
     `,
   },
   ReviewContent: {
@@ -190,14 +216,75 @@ export const StylesModal = {
       justify-content: center;
     `,
     Input: styled.input`
-      font-weight: 500;
+      font-weight: 700;
       width: 100%;
+      margin-top: 10px;
       font-family: 'Roboto', Sans Serif;
-      padding: 10px;
       border: solid #000000;
       border-width: 0px 0px 2px 0px;
       &:focus {
         outline: none;
+      }
+    `,
+    TextArea: styled.textarea`
+      font-weight: 700;
+      width: 100%;
+      height: 200px;
+      margin-top: 15px;
+      font-family: 'Roboto', Sans Serif;
+      border: solid #000000;
+      border-width: 2px;
+      border-radius: 2%;
+      &:focus {
+        outline: none;
+      }
+    `,
+    Select: styled.select`
+      font-weight: 700;
+      background-color: #ffffff;
+      width: 100%;
+      font-family: 'Roboto', Sans Serif;
+      border: solid #000000;
+      border-width: 0px 0px 2px 0px;
+      &:focus {
+        outline: none;
+      }
+    `,
+    PlaceHolderOption: styled.option`
+      background-color: #ffffff;
+    `,
+    Option: styled.option`
+      color: #000000;
+      background-color: #ffffff;
+      opacity: 0.6;
+      transition: 0.3s;
+      &hover: {
+        opacity: 1;
+      }
+
+    `,
+    ActivityButton: styled.button`
+      width: 102px;
+      border: none;
+      outline: none;
+      text-align: center;
+      background-color: #ffffff;
+      font-size: 14px;
+      font-family: 'Roboto', Sans Serif;
+      font-weight: 700;
+      color: #000000;
+      opacity: 0.5;
+      transition: 0.3s;
+      &:active {
+        transform: translate(0px, 2px);
+        -webkit-transform: translate(0px, 2px);
+        opacity: 1;
+        color: #000000;
+      }
+      &:hover {
+        opacity: 1;
+        color: #000000;
+        font-size: 16px;
       }
     `,
   },

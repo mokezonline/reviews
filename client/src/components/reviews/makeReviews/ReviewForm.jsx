@@ -3,7 +3,7 @@ import { StylesModal } from '../StylesModal';
 import FadeIn from '../animations/FadeIn';
 import RatingStars from '../animations/RatingStars';
 
-// import ReviewBody from './ReviewBody';
+import ReviewBody from './ReviewBody';
 import UserInfo from './UserInfo';
 // import RatingFields from './RatingFields';
 
@@ -34,6 +34,7 @@ class ReviewForm extends React.Component {
       ExitButtonContainer,
       WriteReviewsContainer,
       ProductInfoContainer,
+      OverallRatingContainer,
     } = ReviewContainers;
     const {
       ExitButton,
@@ -41,7 +42,7 @@ class ReviewForm extends React.Component {
       H3,
       H4,
       Img,
-      CenteredSpan,
+      ActivityButton,
     } = ReviewContent;
 
     return (
@@ -55,14 +56,27 @@ class ReviewForm extends React.Component {
           </ExitButtonContainer>
           <WriteReviewsContainer>
             <ProductInfoContainer>
-              <H1><CenteredSpan>Write your Review</CenteredSpan></H1>
-              <H3><CenteredSpan>{productName}</CenteredSpan></H3>
-              <CenteredSpan><Img src={imgUrl} /></CenteredSpan>
-              <CenteredSpan>
-                <H4>Product image color may not be shown in color purchased</H4>
-              </CenteredSpan>
-              <CenteredSpan><UserInfo /></CenteredSpan>
-              <CenteredSpan><RatingStars starHandler={this.starHandler} /></CenteredSpan>
+              <H1>Write your Review</H1>
+              <H3>{productName}</H3>
+              <Img src={imgUrl} />
+              <H4>Product image color may not be shown in color purchased</H4>
+              <UserInfo />
+              <OverallRatingContainer>
+                <div>
+                  <H1>Overall Rating:</H1>
+                  <RatingStars starHandler={this.starHandler} />
+                </div>
+                <div>
+                  <H1>Likely to recommend?</H1>
+                  <div>
+                    <ActivityButton>Yes</ActivityButton>
+                    <ActivityButton>No</ActivityButton>
+                  </div>
+                </div>
+              </OverallRatingContainer>
+            </ProductInfoContainer>
+            <ProductInfoContainer>
+              <ReviewBody />
             </ProductInfoContainer>
           </WriteReviewsContainer>
         </ModalContainer>
