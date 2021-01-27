@@ -2,7 +2,7 @@
 /* eslint-disable no-console */
 const faker = require('faker');
 const DB = require('./index.js');
-const Product = require('./Product.js');
+const ProductReview = require('./Product.js');
 
 const sizeChart = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
 const fitChart = ['Loose', 'Tight', 'Good', 'Perfect'];
@@ -47,7 +47,7 @@ const sampleProduct = [{
 }];
 
 const insertSamples = () => {
-  Product.create(sampleProduct)
+  ProductReview.create(sampleProduct)
     .catch(console.log);
 };
 

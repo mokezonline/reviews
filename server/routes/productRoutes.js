@@ -1,12 +1,10 @@
 const express = require('express');
-const controllerP = require('../controllers/products.js');
-// const controllerR = require('../controllers/reviews');
+const controller = require('../controllers/products.js');
 
 const router = express.Router();
 
-router.get('/', controllerP.get);
+router.get('/', controller.getAll);
 
-// router.get('/reviews', controllerR.get);
-// router.post('/reviews', controllerR.post);
+router.get('/reviews', controller.getReviews);
 
 module.exports = router;
