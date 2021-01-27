@@ -1,11 +1,10 @@
 import React from 'react';
-import { StylesModal } from '../StylesModal';
+import $ from 'jquery';
+import { ModalStyles } from '../StyledComponents/ModalStyles';
 import FadeIn from '../animations/FadeIn';
 import RatingStars from '../animations/RatingStars';
-
 import ReviewBody from './ReviewBody';
 import UserInfo from './UserInfo';
-// import RatingFields from './RatingFields';
 
 class ReviewForm extends React.Component {
   constructor(props) {
@@ -14,6 +13,13 @@ class ReviewForm extends React.Component {
       rating: 0,
     };
     this.starHandler = this.starHandler.bind(this);
+    this.handleRecommended = this.handleRecommended.bind(this);
+  }
+
+  handleRecommended(event) {
+    event.preventDefault();
+    $(event.target).toggleClass('selected');
+    console.log(event.target.className)
   }
 
   starHandler(index, callback) {
@@ -26,8 +32,12 @@ class ReviewForm extends React.Component {
   render() {
     // Props
     const { changeView, imgUrl, productName } = this.props;
-    // Styling'
-    const { ReviewContainers, ReviewContent } = StylesModal;
+    // Styling
+    const {
+      ReviewContainers,
+      ReviewContent
+    } = ModalStyles;
+    // Page and containers
     const {
       ModalContainer,
       Overlay,
@@ -36,6 +46,7 @@ class ReviewForm extends React.Component {
       ProductInfoContainer,
       OverallRatingContainer,
     } = ReviewContainers;
+    // Content
     const {
       ExitButton,
       H1,
@@ -69,14 +80,14 @@ class ReviewForm extends React.Component {
                 <div>
                   <H1>Likely to recommend?</H1>
                   <div>
-                    <ActivityButton>Yes</ActivityButton>
-                    <ActivityButton>No</ActivityButton>
+                    <ActivityButton onClick={this.handleRecommended}>Yes</ActivityButton>
+                    <ActivityButton onClick={this.handleRecommended}>No</ActivityButton>
                   </div>
                 </div>
               </OverallRatingContainer>
             </ProductInfoContainer>
             <ProductInfoContainer>
-              <ReviewBody />
+              <ReviewBody changeView={changeView} />
             </ProductInfoContainer>
           </WriteReviewsContainer>
         </ModalContainer>
@@ -85,6 +96,4 @@ class ReviewForm extends React.Component {
   }
 }
 
-// ReviewForm.propTypes = propTypes;
-// ReviewForm.defaultProps = defaultProps;
 export default ReviewForm;

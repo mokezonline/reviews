@@ -1,10 +1,15 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable no-unused-vars */
 /* eslint-disable react/forbid-prop-types */
+/* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
-import styled from 'styled-components';
-import { StylesModal } from '../StylesModal';
+import PropTypes from 'prop-types';
+import { ModalStyles } from '../StyledComponents/ModalStyles';
+
+const propTypes = {
+  review: PropTypes.object,
+};
+const defaultProps = {
+  review: { missing: 'missing' },
+};
 
 const Review = (props) => {
   // Props
@@ -25,7 +30,7 @@ const Review = (props) => {
   const {
     ReviewContainers,
     ReviewContent,
-  } = StylesModal;
+  } = ModalStyles;
   // Page and containers
   const {
     ReviewContainer,
@@ -84,4 +89,6 @@ const Review = (props) => {
   );
 };
 
+Review.propTypes = propTypes;
+Review.defaultProps = defaultProps;
 export default Review;

@@ -1,10 +1,17 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/prop-types */
 /* eslint-disable react/forbid-prop-types */
 import React from 'react';
 import styled from 'styled-components';
-import { StylesDefault } from './reviews/StylesDefault';
-import ReviewModals from './reviews/ReviewModals';
+import PropTypes from 'prop-types';
+import { DefaultStyles } from './ReviewSRC/StyledComponents/DefaultStyles';
+
+const propTypes = {
+  product: PropTypes.object,
+  changeView: PropTypes.func.isRequired,
+};
+const defaultProps = {
+  product: { missing: 'missing' },
+
+};
 
 class ReviewComponent extends React.Component {
   constructor(props) {
@@ -15,12 +22,13 @@ class ReviewComponent extends React.Component {
 
   render() {
     // Styles
-    const { ReviewComponentMain, ContentComponents } = StylesDefault;
+    const { ReviewComponentMain, ContentComponents } = DefaultStyles;
     // Page and Containers
     const {
       ComponentRows,
       ComponentColumns,
       ContentContainer,
+      ReviewButtonContainers,
     } = ReviewComponentMain;
 
     const ComponentTitleContainter = styled.div`
@@ -32,6 +40,8 @@ class ReviewComponent extends React.Component {
       ContentBody,
       ContentStats,
       QuestionIcon,
+      SeeReviewsButton,
+      WriteReviewsButton,
     } = ContentComponents;
 
     const ComponentTitle = styled.b`
@@ -44,12 +54,9 @@ class ReviewComponent extends React.Component {
     const { changeView, product } = this.props;
 
     const {
-      productName,
-      imgUrl,
       rating,
       ratingCount,
       fit,
-      reviews,
     } = product;
 
     const basedText = `Based on ${ratingCount} user reviews`;
@@ -110,16 +117,16 @@ class ReviewComponent extends React.Component {
               </ContentStats>
             </div>
           </ContentContainer>
-          <ReviewModals
-            productName={productName}
-            imgUrl={imgUrl}
-            reviews={reviews}
-            changeView={changeView}
-          />
+          <ReviewButtonContainers>
+            <SeeReviewsButton onClick={() => changeView('seeReviews')}>See All Reviews</SeeReviewsButton>
+            <WriteReviewsButton onClick={() => changeView('writeReviews')}>Write a Review</WriteReviewsButton>
+          </ReviewButtonContainers>
         </ComponentColumns>
       </ComponentRows>
     );
   }
 }
 
+ReviewComponent.propTypes = propTypes;
+ReviewComponent.defaultProps = defaultProps;
 export default ReviewComponent;
