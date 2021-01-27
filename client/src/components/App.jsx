@@ -21,7 +21,7 @@ class App extends React.Component {
   }
 
   getProduct() {
-    axios.get('/products').then(({ data }) => {
+    axios.get('/productreviews').then(({ data }) => {
       this.setState({
         product: data[0],
         view: null,
