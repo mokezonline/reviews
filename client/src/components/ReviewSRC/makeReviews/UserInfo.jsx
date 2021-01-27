@@ -1,6 +1,5 @@
 import React from 'react';
-import { StylesModal } from '../StylesModal';
-// import PropTypes from 'prop-types';
+import { ModalStyles } from '../StyledComponents/ModalStyles';
 
 class UserInfo extends React.Component {
   constructor(props) {
@@ -9,15 +8,22 @@ class UserInfo extends React.Component {
       author: '',
       email: '',
     };
+    this.onChange = this.onChange.bind(this);
+  }
+
+  onChange(event) {
+    const { name } = event.target;
+    this.setState({
+      [name]: event.target.value,
+    });
   }
 
   render() {
     // Styles
-    const { ReviewContainers, ReviewContent } = StylesModal;
+    const { ReviewContainers, ReviewContent } = ModalStyles;
     // Page and containers
     const {
       Form,
-      Div,
       UserInfoContainer,
     } = ReviewContainers;
     // Content

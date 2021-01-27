@@ -1,7 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 import styled from 'styled-components';
 
-export const StylesModal = {
+export const ModalStyles = {
   ReviewContainers: {
     ModalContainer: styled.div`
       position: absolute;
@@ -37,7 +37,7 @@ export const StylesModal = {
     `,
     WriteReviewsContainer: styled.div`
       display: flex;
-      width: 1339px;
+      width: 1168px;
       height: 678px;
       justify-content: center;
       background-color: rgba(255,255,255,1);
@@ -118,7 +118,7 @@ export const StylesModal = {
     `,
     ReviewBodyContainer: styled.div`
       width: 518px;
-      height 415px;
+      height 356px;
     `,
     Form: styled.form`
       display: flex;
@@ -155,7 +155,7 @@ export const StylesModal = {
     ExitButton: styled.button`
       font-family: 'Roboto', Sans Serif;
       font-weight: 500;
-      font-size: 24px;
+      font-size: 16px;
       color: #ffffff;
       background: none;
       border: none;
@@ -285,6 +285,33 @@ export const StylesModal = {
         opacity: 1;
         color: #000000;
         font-size: 16px;
+      }
+      &.selected {
+        opacity: 1;
+        color: #000000;
+        font-size: 16px;
+      }
+    `,
+    SubmitReview: styled.button`
+      background-color: #000000;
+      width: 486px;
+      cursor: pointer;
+      border: none;
+      border-radius: 500px;
+      font-family: 'Roboto', Sans Serif;
+      font-size: 24px;
+      font-weight: 900;
+      color: #ffffff;
+      text-align: center;
+      outline: none;
+      transition: all 0.2s ease;
+      &:active {
+        transform: translate(0px, 2px);
+        -webkit-transform: translate(0px, 2px);
+        box-shadow: 0px 1px 0px 0px;
+      }
+      &:hover {
+        transform:scale(1.05);
       }
     `,
   },

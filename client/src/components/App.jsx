@@ -2,8 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import ReviewComponent from './ReviewComponent';
-import ReviewList from './reviews/seeReviews/ReviewList';
-import ReviewForm from './reviews/makeReviews/ReviewForm';
+import ReviewList from './ReviewSRC/seeReviews/ReviewList';
+import ReviewForm from './ReviewSRC/makeReviews/ReviewForm';
 
 class App extends React.Component {
   constructor(props) {
@@ -14,7 +14,6 @@ class App extends React.Component {
     };
     this.getProduct = this.getProduct.bind(this);
     this.changeView = this.changeView.bind(this);
-    // this.renderModals = this.renderModals.bind(this);
   }
 
   componentDidMount() {
