@@ -46,7 +46,6 @@ const sampleProduct = [{
 
 const insertSamples = () => {
   Product.create(sampleProduct)
-    .then(() => DB.collection.close())
     .catch(console.log);
 };
 
