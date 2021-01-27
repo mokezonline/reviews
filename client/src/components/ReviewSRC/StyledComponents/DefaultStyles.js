@@ -1,7 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 import styled from 'styled-components';
 
-export const StylesDefault = {
+export const DefaultStyles = {
   // Component and paging
   ReviewComponentMain: {
     ComponentRows: styled.section`
@@ -23,6 +23,13 @@ export const StylesDefault = {
       display: flex;
       text-align: left;
     `,
+    ReviewButtonContainers: styled.div`
+      color: #ffffff;
+      display: flex;
+      font-weight: 700;
+      text-align: left;
+      margin-left: 388px;
+      `,
   },
   // Primary display and content
   ContentComponents: {
@@ -65,5 +72,39 @@ export const StylesDefault = {
       text-align: left;
       outline: none;
   `,
+    SeeReviewsButton: styled.button`
+      background-color: #ffffff;
+      cursor: pointer;
+      padding: 10px 18px;
+      border: none;
+      border-radius: 500px;
+      font-weight: 700;
+      font-family: 'Roboto', Sans Serif;
+      font-size: 16px;
+      color: #000000;
+      text-align: center;
+      outline: none;
+      transition: all 0.2s ease;
+      &:active {
+        transform: translate(0px, 2px);
+        -webkit-transform: translate(0px, 2px);
+        box-shadow: 0px 1px 0px 0px;
+      }
+      &:hover {
+        transform:scale(1.05);
+      }
+    `,
+    WriteReviewsButton: styled.button`
+      background: none;
+      cursor: pointer;
+      border: none;
+      padding: 10px 18px;
+      font-weight: 700;
+      font-size: 16px;
+      font-family: 'Roboto', Sans Serif;
+      color: #ffffff;
+      text-align: center;
+      outline: none;
+    `,
   },
 };

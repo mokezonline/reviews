@@ -3,9 +3,9 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-else-return */
 import React from 'react';
-import { StylesModal } from '../StylesModal';
+import { ModalStyles } from '../StyledComponents/ModalStyles';
 
-const { ReviewContainers, ReviewContent } = StylesModal;
+const { ReviewContainers, ReviewContent } = ModalStyles;
 const { Div } = ReviewContainers;
 const { Stars } = ReviewContent;
 class RatingStars extends React.Component {

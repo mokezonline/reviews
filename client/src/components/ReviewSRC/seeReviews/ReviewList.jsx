@@ -1,10 +1,19 @@
-/* eslint-disable react/prop-types */
+/* eslint-disable react/forbid-prop-types */
 import React, { useState, useEffect } from 'react';
 import ReactPaginate from 'react-paginate';
 import $ from 'jquery';
-import { StylesModal } from '../StylesModal';
+import PropTypes from 'prop-types';
+import { ModalStyles } from '../StyledComponents/ModalStyles';
 import Review from './Review';
 import FadeIn from '../animations/FadeIn';
+
+const propTypes = {
+  reviews: PropTypes.array,
+  changeView: PropTypes.func.isRequired,
+};
+const defaultProps = {
+  reviews: [{ missing: 'missing' }],
+};
 
 const ReviewList = (props) => {
   // Props
@@ -41,7 +50,7 @@ const ReviewList = (props) => {
   const {
     ReviewContainers,
     ReviewContent,
-  } = StylesModal;
+  } = ModalStyles;
   // Page and containers
   const {
     ModalContainer,
@@ -92,4 +101,6 @@ const ReviewList = (props) => {
   );
 };
 
+ReviewList.propTypes = propTypes;
+ReviewList.defaultProps = defaultProps;
 export default ReviewList;
