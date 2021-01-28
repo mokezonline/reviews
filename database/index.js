@@ -1,14 +1,12 @@
 /* eslint-disable no-console */
 const mongoose = require('mongoose');
 
-const mongoUri = 'mongodb://localhost/patagonia';
+const mongoUri = 'mongodb+srv://admin:admin256@cluster0.auers.mongodb.net/fjordproject?retryWrites=true&w=majority';
 
-const DB = () => {
+const dbConnect = () => {
   mongoose.connect(mongoUri, ({
-    useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true,
-  }))
-    .then(() => { console.log(`connected to DB @ ${mongoUri}`); })
-    .catch(console.log);
+    useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false,
+  }));
 };
 
-module.exports = DB;
+module.exports = dbConnect;
