@@ -37,6 +37,8 @@ class App extends React.Component {
 
   render() {
     const Page = styled.div`
+      @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+      ::-webkit-scrollbar {display:none;}
       margin: 0;
       padding: 0;
       width: 100%;

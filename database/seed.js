@@ -1,8 +1,10 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
 const faker = require('faker');
+const mongoose = require('mongoose');
 const DB = require('./index.js');
 const ProductReview = require('./Product.js');
+
+DB();
 
 const sizeChart = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
 const fitChart = ['Loose', 'Tight', 'Good', 'Perfect'];
@@ -51,7 +53,11 @@ const insertSamples = () => {
   Product.create(sampleProduct)
 =======
   ProductReview.create(sampleProduct)
+<<<<<<< HEAD
 >>>>>>> 65f1b274983ae732ea01f9e4b2dcc1daca273b8b
+=======
+    .then(mongoose.disconnect())
+>>>>>>> d944ce5792708fb02503a5891c05f6fa03cf1968
     .catch(console.log);
 };
 
