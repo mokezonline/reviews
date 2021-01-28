@@ -1,8 +1,10 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
 const faker = require('faker');
+const mongoose = require('mongoose');
 const DB = require('./index.js');
 const ProductReview = require('./Product.js');
+
+DB();
 
 const sizeChart = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
 const fitChart = ['Loose', 'Tight', 'Good', 'Perfect'];
@@ -48,6 +50,7 @@ const sampleProduct = [{
 
 const insertSamples = () => {
   ProductReview.create(sampleProduct)
+    .then(mongoose.disconnect())
     .catch(console.log);
 };
 
