@@ -6,6 +6,7 @@ module.exports = {
       .then((r) => {
         res.status(200).send(r);
       }).catch((err) => {
+        console.log(err);
         res.status(500).send(err);
       });
   },
