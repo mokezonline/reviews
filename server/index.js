@@ -19,5 +19,5 @@ app.use(express.json());
 app.use('/productreviews', productRoutes);
 
 app.listen(PORT, () => {
-  console.log(`listening on ${PORT}`);
+  console.log(`Reviews componnet is listening on ${PORT}`);
 });
