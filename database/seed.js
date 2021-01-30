@@ -1,10 +1,10 @@
 /* eslint-disable no-console */
 const faker = require('faker');
 const mongoose = require('mongoose');
-const DB = require('./index.js');
+const dbConnect = require('./index.js');
 const ProductReview = require('./Product.js');
 
-DB();
+dbConnect();
 
 const sizeChart = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
 const fitChart = ['Loose', 'Tight', 'Good', 'Perfect'];
@@ -48,6 +48,7 @@ const sampleProduct = [{
   reviews: fakeData,
 }];
 
+<<<<<<< HEAD
 const insertSamples = () => {
 <<<<<<< HEAD
   Product.create(sampleProduct)
@@ -62,3 +63,8 @@ const insertSamples = () => {
 };
 
 insertSamples();
+=======
+ProductReview.create(sampleProduct)
+  .then(() => mongoose.disconnect())
+  .catch(console.log);
+>>>>>>> 1cae19da71e581a3cdb7ba56e030b42e526cd8b7
